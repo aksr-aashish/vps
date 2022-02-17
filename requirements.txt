@@ -1,0 +1,15 @@
+pyrogram
+vanitas
+python-arq
+pillow
+PyYAML
+aiohttp
+aiofiles
+asyncio
+requests
+tgcrypto
+pymongo
+dnspython
+app
+python-idb
+time
