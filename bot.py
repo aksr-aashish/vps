@@ -30,7 +30,7 @@ try:
     API_ID = 2984107
     API_HASH = "4ce83ad7d954da391c659c6d7d76e0ce"
     BOT_TOKEN = "5160100610:AAHoLVXbu9dm-ac1wJl6Kd___7meZSz68eU" #os.environ.get("BOT_TOKEN", None)
-    SUDOERS = os.environ.get("SUDOERS", None)
+    SUDOERS = [5086015489,5001573230, 5086015489]
     OWNER_ID = [5086015489,5001573230, 5086015489]
 except Exception as e:
     log.warning("Missing config vars {}".format(e))
@@ -99,7 +99,7 @@ async def ping(event):
     disk = disk_usage("/")
     text = "*>-------< System >-------<*\n\n"
     text += f"Uptime: `{get_readable_time((bot_uptime))}`\n"
-    text += f"**CPU:** `{cpu}%`\n"
+    text += f"**CPU:** `{cpu}%.`\n"
     text += f"**RAM:** `{ram}%`\n"
     text += f"**Disk:** `{disk}%`\n"
     text += f"**Python Version:** `3.10.0`\n"
@@ -116,36 +116,17 @@ async def ping(e):
         start = datetime.now()
         end = datetime.now()
         ms = (end-start).microseconds / 1000
-        pingop = f"█▀█ █▀█ █▄░█ █▀▀\n█▀▀ █▄█ █░▀█ █▄█\n\nϟ Arcane X System  `{ms}` ᴍs"                   
+        pingop = f"█▀█ █▀█ █▄░█ █▀▀\n█▀▀ █▄█ █░▀█ █▄█\n\nϟ Arcane X System "                   
         await fuk.edit(pingop)
         await e.edit(pingop)
-@bot.on(events.NewMessage(incoming=True, pattern="/arcane"))
+@bot.on(events.NewMessage(incoming=True, pattern="/check"))
 async def info(event):
-    user = event.sender_id 
-    msg = await event.reply("Taking a look on Fanclub Server.")
-    time.sleep(1)
-    await msg.edit("Initialising ▫️◾️▫️")
-    time.sleep(1)
-    await msg.edit("Initialising ◾️▫️◾️")
-    time.sleep(1)
-    await msg.edit("Initialising ▫️◾️▫️")
-    time.sleep(1)
-    await msg.edit("Initialising ◾️▫️◾️")
-    time.sleep(1)
-    await msg.edit("Initialising ▫️◾️▫️")
-    time.sleep(1)
-    await msg.edit("Initialising ◾️▫️◾️")
-    time.sleep(1)
-    await msg.edit("Initialising ▫️◾️▫️")
-    time.sleep(1)
-    await msg.edit("Connection successful!")
-    time.sleep(2)
-    if user == {OWNER_ID} or 5001573230:
-         await msg.edit("Connection successful!\n\nWelcome To Arcane X System\n\nYou are a Valid User!\n\n𝐑𝐚𝐧𝐤- 𝑶𝒘𝒏𝒆𝒓")
-    elif user in SUDOERS:
-        await msg.edit("Connection successful!\n\nWelcome To Arcane X System\n\nYou are a Valid User!\n\n𝐑𝐚𝐧𝐤-𝗔𝗿𝗰𝗮𝗻𝗲 𝗫 𝗦𝘂𝗽𝗽𝗼𝗿𝘁𝗲𝗿!")
+    if (event.sender.id in SUDOERS):
+        await event.reply("Connection successful!\n\nWelcome To Arcane X System\n\nYou are a Valid User!\n\n𝐑𝐚𝐧𝐤-𝗔𝗿𝗰𝗮𝗻𝗲 𝗫 𝗦𝘂𝗽𝗽𝗼𝗿𝘁𝗲𝗿")
+    if (event.sender.id in OWNER_ID):
+        await event.reply("Connection successful!\n\nWelcome To Arcane X System\n\nYou are a Valid User!\n\n𝐑𝐚𝐧𝐤- 𝑶𝒘𝒏𝒆𝒓")
     else:
-        await msg.edit("Chla ja ")
+        await event.reply("Access denined Head to Support Chat")
                    
 
 
@@ -159,68 +140,35 @@ axel4 = "https://telegra.ph/file/738e1b93e2abdbe7e459c.jpg"
 @bot.on(events.NewMessage(incoming=True, pattern="/start"))
 async def proboyx(event):
   button = [[custom.Button.inline("CHECK",data="information")],[Button.url("Owner", url="https://t.me/axel_0p")],[Button.url("Support",url="https://t.me/vexana_Support")]]
-  on = await bot.send_message(event.chat, f"**🔵 𝓗𝓮𝓵𝓵𝓸  {(event.sender.first_name)}**\n\n**🔵 Myself [ArcaneXsysteam](https://t.me/{bot_username})**\n**🔵 Cʀᴇᴀᴛᴇᴅ Bʏ [Axel](t.me/Axel_0p)**", file=axel1, buttons=button)
-  await asyncio.sleep(edit_time)
-  ok = await event.msg.edit(event.chat_id, on, file=axel2, buttons=button) 
-
-  await asyncio.sleep(edit_time)
-  ok2 = await event.msg.edit(event.chat_id, ok, file=axel3, buttons=button)
-
-  await asyncio.sleep(edit_time)
-  ok3 = await event.msg.edit(event.chat_id, ok2, file=axel1, buttons=button)
+  on = await bot.send_message(event.chat, f"**🔵 𝓗𝓮𝓵𝓵𝓸  {(event.sender.first_name)}**\n\n**🔵 Myself [ArcaneXsystem](https://t.me/{bot_username})**\n**🔵 Cʀᴇᴀᴛᴇᴅ Bʏ [Axel](t.me/Axel_0p)**", file=axel1, buttons=button) 
     
-  await asyncio.sleep(edit_time)
-  ok4 = await event.msg.edit(event.chat_id, ok3, file=axel3, buttons=button)
-    
-  await asyncio.sleep(edit_time)
-  ok5 = await event.msg.edit(event.chat_id, ok4, file=axel2, buttons=button)
-    
-  await asyncio.sleep(edit_time)
-  ok6 = await event.msg.edit(event.chat_id, ok5, file=axel3, buttons=button)
-    
-  await asyncio.sleep(edit_time)
-  ok7 = await event.msg.edit(event.chat_id, ok6, file=axel1, buttons=button)
+ 
 
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"information")))
 async def callback_query_handler(event):
   try:
     boy = event.sender_id
     no = await bot.get_entity(boy)
-    Axel = "Detail Featched from FanClub Server as follow \n"
-    Axel += f"FIRST NAME : {no.first_name} \n"
-    Axel += f"LAST NAME : {no.last_name}\n"
-    Axel += f"YOU BOT : {no.bot} \n"
-    Axel += f"RESTRICTED : {no.restricted} \n"
-    Axel += f"USER ID : {boy}\n"
-    Axel += f"USERNAME : {no.username}\n"
+    tf =event.sender.id
+    user_status = "Arcane Verifed" if tf in SUDOERS else "Civilian"
+    Axel = "Details Featched from FanClub Server\n"
+    Axel += f"First Name : {no.first_name} \n"
+    Axel += f"Last Name : {no.last_name}\n"
+    Axel += f"You Bot : False \n"
+    Axel += f"Status : {user_status} \n"
+    Axel += f"User Id: {boy}\n"
+    Axel += f"Username : {no.username}\n"
     await event.answer(Axel, alert=True)
   except Exception as e:
     await event.reply(f"{e}")
 @bot.on(events.NewMessage(incoming=True, pattern="/help"))
 async def axel(event):
-        await event.reply(" Welcome help sectoin of Arcane X System",
+        await event.reply(" Welcome To Arcane X System \nType /check to check your status\nType /info to check your Staus\nType /ping to Know thae System Stats",
                     buttons=[
                         [Button.url("Owner", url="https://t.me/axel_0p")],
-                        [Button.url("Support",url="https://t.me/vexana_Support")]
-                    ])  
+                        [Button.url("Support",url="https://t.me/vexana_Support")]]) 
 
-@bot.on(events.NewMessage)
-def my_event_handler(event):
-    if 'help' in event.raw_text:
-        event.reply('Type /arcane to check your status\n\n Type /info to check your Staus\n\n Type /ping to Know thae System Stats')
-
-@bot.on(events.NewMessage(incoming=True, from_users=SUDOERS, pattern="^/sudo$"))
-async def all_auths(event):
-    msg = "**List of sudo users**:\n\n"
-    for i in OWNER_ID:
-        msg += "[{}](tg://user?id={})\n".format(i, i)
-    if len(msg) > 4096:
-        with open("sudo.txt", "w") as f:
-            f.write(msg.replace("*", ""))
-        await event.reply("**sudo users**", file="sudo.txt")
-        os.remove("sudo.txt")
-    else:
-        await event.reply(msg)    
+   
 
 
 @bot.on(events.NewMessage(incoming=True, from_users=OWNER_ID, pattern="^/broadcast ?(.*)"))
